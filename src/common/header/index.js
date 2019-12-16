@@ -6,8 +6,9 @@ import { HeaderWrapper, Logo, Nav, NavItem, SearchWrapper, NavSearch, Addition, 
 
 class Header extends Component {
 
-    getListArea(show){
-        if (show) {
+    getListArea() {
+        const { focused, list } = this.props;
+        if (focused) {
             return (
                 <SearchInfo >
                     <SearchInfoTittle>
@@ -15,12 +16,9 @@ class Header extends Component {
                             <SearchInfoSwitch>换一批</SearchInfoSwitch>
                     </SearchInfoTittle>
                     <SearchInfoList>
-                        <SearchInfoItem>教育</SearchInfoItem>
-                        <SearchInfoItem>教育</SearchInfoItem>
-                        <SearchInfoItem>教育</SearchInfoItem>
-                        <SearchInfoItem>教育</SearchInfoItem>
-                        <SearchInfoItem>教育</SearchInfoItem>
-                        <SearchInfoItem>教育</SearchInfoItem>
+                        {list.map((item) => (
+                            <SearchInfoItem key={item}>{item}</SearchInfoItem>
+                        ))}
                     </SearchInfoList>
                 </SearchInfo>
             )
@@ -30,6 +28,7 @@ class Header extends Component {
     }
 
     render() {
+        const { focused, handleSearchBlur, handleSearchFocus } =this.props;
         return (
             <HeaderWrapper>
                 <Logo />
@@ -38,18 +37,18 @@ class Header extends Component {
                     <NavItem className="left">下载APP</NavItem>
                     <SearchWrapper>
                         <CSSTransition
-                            in={this.props.focused}
+                            in={focused}
                             timeout={200}
                             classNames="slide"
                         >
                             <NavSearch
-                                className={this.props.focused ? "focused" : ""}
-                                onFocus={this.props.handleSearchFocus}
-                                onBlur={this.props.handleSearchBlur}
+                                className={focused ? "focused" : ""}
+                                onFocus={handleSearchFocus}
+                                onBlur={handleSearchBlur}
                             ></NavSearch>
                         </CSSTransition>
-                        <i className={this.props.focused ? "focused iconfont" : "iconfont"}>&#xe600;</i>
-                        {this.getListArea(this.props.focused)}
+                        <i className={focused ? "focused iconfont" : "iconfont"}>&#xe600;</i>
+                        {this.getListArea()}
                     </SearchWrapper>
 
                     <NavItem className="right">登陆</NavItem>
@@ -69,13 +68,15 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        focused: state.get('header').get('focused')
+        focused: state.get('header').get('focused'),
+        list: state.get('header').get('list')
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         handleSearchFocus() {
+            dispatch(actionCreators.getListAction())
             dispatch(actionCreators.inputFocusAction());
         },
         handleSearchBlur() {
