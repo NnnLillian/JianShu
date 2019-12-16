@@ -12,17 +12,29 @@ export const inputBlurAction = () => ({
 export const getListAction = () => {
     return (dispatch) => {
         axios.get('/api/headList.json').then(
-            (res) => { 
+            (res) => {
                 dispatch(changeListAction(res.data.data))
-             }
+            }
         ).catch(
             () => { console.log("get headList.json error") }
         )
     }
 }
 
+export const mouseEnterAction = () => ({
+    type: actionTypes.MOUSE_ENTER
+})
 
-const changeListAction=(data)=>({
+export const mouseLeaveAction = () => ({
+    type: actionTypes.MOUSE_LEAVE
+})
+
+export const changePageAction = () => ({
+    type: actionTypes.CHANGE_PAGE
+})
+
+const changeListAction = (data) => ({
     type: actionTypes.CHANGE_LIST,
-    data
+    data,
+    page: Math.ceil(data.length / 4)
 })

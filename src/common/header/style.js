@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import logoPic from '../../statics/logo.png';
 
-export const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.div `
     position: relative;
     height: 58px;
     border-bottom: 1px solid #f0f0f0
@@ -9,7 +9,8 @@ export const HeaderWrapper = styled.div`
 
 export const Logo = styled.a.attrs({
     href: '/'
-})`
+})
+`
     position: absolute;
     top: 0;
     left: 0;
@@ -20,7 +21,7 @@ export const Logo = styled.a.attrs({
     background-size: contain;
 `;
 
-export const Nav = styled.div`
+export const Nav = styled.div `
     height:100%;
     width:960px;
     padding-left:12px;
@@ -28,7 +29,7 @@ export const Nav = styled.div`
     margin: 0 auto;
 `;
 
-export const NavItem = styled.div`
+export const NavItem = styled.div `
     &.left{float:left;}
     &.right{
         float:right;
@@ -42,7 +43,7 @@ export const NavItem = styled.div`
     padding:15px;
     margin-right: 10px;
 `;
-export const SearchWrapper =styled.div`
+export const SearchWrapper = styled.div `
     position: relative;
     top: 9px;
     float:left;
@@ -60,7 +61,7 @@ export const SearchWrapper =styled.div`
     .slide-exit-active .slide-exit-done{
         width:160px;
     }
-    .iconfont{
+    .zoom{
         position: absolute;
         bottom: 4px;
         right: 5px;
@@ -78,8 +79,9 @@ export const SearchWrapper =styled.div`
     }
 `
 export const NavSearch = styled.input.attrs({
-    placeholder:'搜索'
-})`
+    placeholder: '搜索'
+})
+`
     padding: 0 40px 0 20px;
     width: 160px;
     height: 38px;
@@ -94,13 +96,13 @@ export const NavSearch = styled.input.attrs({
         width:240px;
     }
 `
-export const Addition = styled.div`
+export const Addition = styled.div `
     position: absolute;
     top: 0;
     right: 0;
     height:100%
 `
-export const Button = styled.button`
+export const Button = styled.button `
     float:right;
     height: 40px;
     line-height: 24px;
@@ -117,7 +119,7 @@ export const Button = styled.button`
     }
 `
 
-export const SearchInfo = styled.div`
+export const SearchInfo = styled.div `
     position: absolute;
     left: 0;
     top: 56px;
@@ -127,7 +129,7 @@ export const SearchInfo = styled.div`
     // background: green;
 `
 
-export const SearchInfoTittle = styled.div`
+export const SearchInfoTittle = styled.div `
     margin-top: 20px;
     margin-bottom: 15px;
     line-height: 20px;
@@ -135,16 +137,24 @@ export const SearchInfoTittle = styled.div`
     color: #969696;
 `
 
-export const SearchInfoSwitch = styled.span`
+export const SearchInfoSwitch = styled.span `
     float: right;
     font-size: 13px;
+    .spin {
+        display: block;
+        float: left
+        font-size: 14px;
+        margin-right: 2px;
+        transition: all .2s ease-in;
+        transform-origin: center center;
+    }
 `
 
-export const SearchInfoList=styled.div`
+export const SearchInfoList = styled.div `
     overflow: hidden;
 `
 
-export const SearchInfoItem=styled.a`
+export const SearchInfoItem = styled.a `
     display: block;
     float: left;
     line-height: 20px;

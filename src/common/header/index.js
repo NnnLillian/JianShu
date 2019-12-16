@@ -7,18 +7,32 @@ import { HeaderWrapper, Logo, Nav, NavItem, SearchWrapper, NavSearch, Addition, 
 class Header extends Component {
 
     getListArea() {
-        const { focused, list } = this.props;
-        if (focused) {
+        const { focused, mouseIn, list, page, handleMouseEnter, handleMouseLeave, handleChangePage } = this.props;
+        let resList = [];
+
+        if (list.size) {
+            for (let i = (page - 1) * 4; i < page * 4; i++) {
+                resList.push(
+                    <SearchInfoItem key={list.get(i)}>{list.get(i)}</SearchInfoItem>
+                );
+            }
+        }
+
+        if (focused || mouseIn) {
             return (
-                <SearchInfo >
+                <SearchInfo
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                >
                     <SearchInfoTittle>
                         热门搜索
-                            <SearchInfoSwitch>换一批</SearchInfoSwitch>
+                            <SearchInfoSwitch onClick={() => handleChangePage(this.spinIcon)}>
+                            <i ref={(icon) => { this.spinIcon = icon }} className="iconfont spin">&#xe612;</i>
+                            换一批
+                            </SearchInfoSwitch>
                     </SearchInfoTittle>
                     <SearchInfoList>
-                        {list.map((item) => (
-                            <SearchInfoItem key={item}>{item}</SearchInfoItem>
-                        ))}
+                        {resList}
                     </SearchInfoList>
                 </SearchInfo>
             )
@@ -28,7 +42,7 @@ class Header extends Component {
     }
 
     render() {
-        const { focused, handleSearchBlur, handleSearchFocus } =this.props;
+        const { focused, handleSearchBlur, handleSearchFocus } = this.props;
         return (
             <HeaderWrapper>
                 <Logo />
@@ -47,7 +61,7 @@ class Header extends Component {
                                 onBlur={handleSearchBlur}
                             ></NavSearch>
                         </CSSTransition>
-                        <i className={focused ? "focused iconfont" : "iconfont"}>&#xe600;</i>
+                        <i className={focused ? "focused iconfont zoom" : "iconfont zoom"}>&#xe600;</i>
                         {this.getListArea()}
                     </SearchWrapper>
 
@@ -69,7 +83,10 @@ class Header extends Component {
 const mapStateToProps = (state) => {
     return {
         focused: state.get('header').get('focused'),
-        list: state.get('header').get('list')
+        mouseIn: state.getIn(['header', 'mouseIn']),
+        list: state.get('header').get('list'),
+        page: state.getIn(['header', 'page']),
+        totalPages: state.getIn(['header', 'totalPages']),
     }
 }
 
@@ -81,7 +98,23 @@ const mapDispatchToProps = (dispatch) => {
         },
         handleSearchBlur() {
             dispatch(actionCreators.inputBlurAction());
-        }
+        },
+        handleMouseEnter() {
+            dispatch(actionCreators.mouseEnterAction());
+        },
+        handleMouseLeave() {
+            dispatch(actionCreators.mouseLeaveAction());
+        },
+        handleChangePage(spinIcon) {
+            let originAngle = spinIcon.style.transform.replace(/[^0-9]/ig, '');
+            if (originAngle) {
+                originAngle = parseInt(originAngle, 10);
+            } else {
+                originAngle = 0;
+            }
+            spinIcon.style.transform = 'rotate(' + (originAngle + 360) + 'deg)'
+            dispatch(actionCreators.changePageAction());
+        },
     }
 }
 
