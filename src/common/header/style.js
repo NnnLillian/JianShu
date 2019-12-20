@@ -3,7 +3,7 @@ import logoPic from '../../statics/logo.png';
 
 export const HeaderWrapper = styled.div `
     position: relative;
-    height: 58px;
+    height: 56px;
     border-bottom: 1px solid #f0f0f0
 `;
 
@@ -106,7 +106,8 @@ export const Button = styled.button `
     float:right;
     height: 40px;
     line-height: 24px;
-    margin: 8px 12px 0;
+    margin: 9px 5px 0 15px;
+    padding: 6px 12px;
     border-radius: 20px;
     font-size: 15px;
     border: 1px solid #ea6f5a
