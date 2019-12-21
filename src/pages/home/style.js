@@ -9,7 +9,8 @@ export const HomeWrapper = styled.div `
 
 export const HomeLeft = styled.div `
     margin-left: 15px;
-    padding: 15px;
+    padding-top: 30px;
+    padding-left: 15px;
     width: 625px;
     float: left
     .banner-img {
@@ -21,7 +22,7 @@ export const HomeLeft = styled.div `
 
 export const HomeRight = styled.div `
     padding-top: 30px;
-    width: 240px;
+    width: 280px;
     float: right
 `
 
@@ -91,4 +92,19 @@ export const ListInfo = styled.div`
         line-height: 24px;
         color: #999;    
     }
+`
+
+export const RecommendWrapper = styled.div`
+    padding-bottom: 4px;
+    min-height: 228px;
+    position: relative;
+`
+
+export const RecommendItem = styled.div`
+    width: 280px;
+    height: 50px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    background: url(${(props)=>props.imgUrl});
+    background-size: contain;
 `

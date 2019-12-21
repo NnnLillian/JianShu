@@ -17,5 +17,6 @@ export const getTopicListAction = () => {
 const changeListAction = (data) => ({
     type: actionTypes.CHANGE_LIST,
     topicList: data.topicList,
-    articleList: data.articleList
+    articleList: data.articleList,
+    recommendList: data.recommendList
 })
