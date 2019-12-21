@@ -6,7 +6,7 @@ export const getTopicListAction = () => {
         axios.get('/api/home.json').then(
             (res) => {
                 const result = res.data.data;
-                dispatch(changeListAction(result.topicList))
+                dispatch(changeListAction(result))
             }
         ).catch(
             () => { console.log("get headList.json error") }
@@ -15,6 +15,7 @@ export const getTopicListAction = () => {
 }
 
 const changeListAction = (data) => ({
-    type: actionTypes.CHANGE_TOPIC_LIST,
-    data,
+    type: actionTypes.CHANGE_LIST,
+    topicList: data.topicList,
+    articleList: data.articleList
 })

@@ -3,16 +3,17 @@ import { actionTypes } from './index';
 import { fromJS } from 'immutable';
 
 const defaultState = fromJS({
-    topicList: []
+    topicList: [],
+    articleList: [],
 });
 
 
 export default (state = defaultState, action) => {
     switch (action.type) {
-        case actionTypes.CHANGE_TOPIC_LIST:
-            const list = fromJS(action.data);
+        case actionTypes.CHANGE_LIST:
             return state.merge({
-                topicList: list,
+                topicList: fromJS(action.topicList),
+                articleList: fromJS(action.articleList),
             })
         default:
             return state;
