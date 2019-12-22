@@ -1,1 +1,2 @@
-export const CHANGE_LIST = "topic/ChangeList";
+export const GET_LIST = "topic/GetList";
+export const CHANGE_PAGE = "topic/ChangePage";
