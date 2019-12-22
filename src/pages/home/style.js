@@ -176,3 +176,14 @@ export const WriterMore = styled.button `
     border: 1px solid #dcdcdc;
     border-radius: 4px;
 `
+
+export const LoadMore = styled.div `
+    border-radius: 20px;
+    background-color: #a5a5a5;
+    margin: 30px 0;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    cursor:pointer;
+`

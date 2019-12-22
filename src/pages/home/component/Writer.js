@@ -6,16 +6,15 @@ import { actionCreators } from '../store'
 class Writer extends Component {
 
     render() {
-        const { handleChangeWriterPage, writerList,writerPage } = this.props;
+        const { handleChangeWriterPage, writerList, writerPage } = this.props;
 
         let writerPageList = [];
-        if(writerList.size){
+        if (writerList.size) {
             for (let i = (writerPage - 1) * 2; i < writerPage * 2; i++) {
                 writerPageList.push(writerList.get(i));
-                console.log(writerPageList)
             }
         }
-        
+
         return (
             <WriterWrapper>
                 <span>推荐作者</span>
