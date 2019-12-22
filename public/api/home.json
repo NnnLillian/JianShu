@@ -56,6 +56,26 @@
                 "id": 4,
                 "img_url": "//cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png"
             }
+        ],
+        "writerList": [
+            {
+                "id": 1,
+                "name": "董克平日记",
+                "introduce": "写了789.1k字 · 2.5k喜欢",
+                "img_url": "https://upload.jianshu.io/users/upload_avatars/9988193/fc26c109-1ae6-4327-a298-2def343e9cd8.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp"
+            },
+            {
+                "id": 2,
+                "name": "简书钻首席小管家",
+                "introduce": "写了213.2k字 · 157.5k喜欢",
+                "img_url": "https://upload.jianshu.io/users/upload_avatars/14715425/e0668349-8c75-43db-8a9d-c388e5f00d0d.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp"
+            },
+            {
+                "id": 2,
+                "name": "吴晓布",
+                "introduce": "写了721.8k字 · 24.5k喜欢",
+                "img_url": "https://upload.jianshu.io/users/upload_avatars/3343569/6940ee65-036f-4b7a-9935-5915d9b67d14.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp"
+            }
         ]
     }
 }

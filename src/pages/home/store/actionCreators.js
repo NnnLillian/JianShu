@@ -18,5 +18,6 @@ const changeListAction = (data) => ({
     type: actionTypes.CHANGE_LIST,
     topicList: data.topicList,
     articleList: data.articleList,
-    recommendList: data.recommendList
+    recommendList: data.recommendList,
+    writerList: data.writerList
 })

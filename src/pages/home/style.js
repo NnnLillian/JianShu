@@ -56,7 +56,7 @@ export const TopicItem = styled.div `
     }
 `
 
-export const ListItem = styled.div`
+export const ListItem = styled.div `
     position: relative;
     min-height: 140px;
     width: 100%;
@@ -77,7 +77,7 @@ export const ListItem = styled.div`
     }
 `
 
-export const ListInfo = styled.div`
+export const ListInfo = styled.div `
     padding-right: 165px;
     .title{
         margin: -7px 0 4px;
@@ -94,17 +94,85 @@ export const ListInfo = styled.div`
     }
 `
 
-export const RecommendWrapper = styled.div`
+export const RecommendWrapper = styled.div `
     padding-bottom: 4px;
     min-height: 228px;
     position: relative;
 `
 
-export const RecommendItem = styled.div`
+export const RecommendItem = styled.div `
     width: 280px;
     height: 50px;
     margin-bottom: 6px;
     border-radius: 4px;
     background: url(${(props)=>props.imgUrl});
     background-size: contain;
+`
+
+export const WriterWrapper = styled.div `
+    width: 280px;
+    margin: 30px 0 0;
+    text-align: left;
+    span{
+        font-size: 14px;
+        color: #969696;
+    }
+`
+
+export const WriterSwitch = styled.span `
+    float: right;
+    font-size: 13px;
+    cursor: pointer;
+    .spin {
+        display: block;
+        float: left
+        font-size: 14px;
+        margin-right: 2px;
+        transition: all .2s ease-in;
+        transform-origin: center center;
+    }
+`
+
+export const WriterItem = styled.div `
+    margin-top: 15px;
+    line-height: 20px;
+    img{
+        float: left;
+        width: 46px;
+        height: 46px;
+        margin-right: 10px;
+        border-radius: 50%;
+        border: 1px solid #ddd;
+    }
+    .writer-name{
+        padding-top: 5px;
+        margin-right: 60px;
+        font-size: 14px;
+        display: block;
+        color: #333;
+    }
+    .introduce{
+        font-size: 12px;
+        color: #969696;
+        margin: 2px 0 10px;
+    }
+    .follow{
+        float: right;
+        margin-top: 5px;
+        padding: 0;
+        font-size: 13px;
+        color: #42c02e;
+    }
+`
+
+export const WriterMore = styled.button `
+    margin-top: 20px;
+    padding: 7px 7px 7px 12px;
+    left: 0;
+    width: 100%;
+    font-size: 13px;
+    color: #787878;
+    background-color: #f7f7f7;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
 `
