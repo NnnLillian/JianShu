@@ -18,6 +18,10 @@ export const HomeLeft = styled.div `
         width: 625px;
         height: 270px;
     }
+    .link {
+        text-decoration: none;
+        color: #333;
+    }
 `
 
 export const HomeRight = styled.div `

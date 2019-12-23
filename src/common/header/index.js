@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
 import { CSSTransition } from 'react-transition-group';
+import { Link } from 'react-router-dom';
 import { HeaderWrapper, Logo, Nav, NavItem, SearchWrapper, NavSearch, Addition, Button, SearchInfo, SearchInfoTittle, SearchInfoSwitch, SearchInfoList, SearchInfoItem } from './style'
 
 class Header extends Component {
@@ -45,7 +46,9 @@ class Header extends Component {
         const { focused, handleSearchBlur, handleSearchFocus, list } = this.props;
         return (
             <HeaderWrapper>
-                <Logo />
+                <Link to="/">
+                    <Logo />
+                </Link>
                 <Nav>
                     <NavItem className="left active">首页</NavItem>
                     <NavItem className="left">下载APP</NavItem>
