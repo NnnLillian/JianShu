@@ -1,7 +1,10 @@
-import {
-    actionTypes
-} from './index';
+import { actionTypes } from './index';
 import axios from 'axios';
+
+export const changeScrollTopShowAction = (toggle) => ({
+    type: actionTypes.TOGGLE_SCROLL_SHOW,
+    toggle,
+})
 
 export const getMoreListAction = (articlePage) => {
     return (dispatch) => {

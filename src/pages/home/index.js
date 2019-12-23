@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HomeWrapper, HomeLeft, HomeRight } from './style';
+import { HomeWrapper, HomeLeft, HomeRight, BackTop } from './style';
 import Topic from './component/Topic'
 import List from './component/List'
 import Recommend from './component/Recommend'
@@ -20,12 +20,33 @@ class Home extends Component {
                     <Recommend></Recommend>
                     <Writer></Writer>
                 </HomeRight>
+                {this.props.showScroll ? <BackTop onClick={this.handleScrollTop}>顶部</BackTop> : null}
+
             </HomeWrapper>
         )
     }
 
     componentDidMount() {
         this.props.changeHomeData();
+        this.bindEvents();
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.props.changeScrollTopShow)
+    }
+
+    handleScrollTop() {
+        window.scrollTo(0, 0)
+    }
+
+    bindEvents() {
+        window.addEventListener("scroll", this.props.changeScrollTopShow)
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        showScroll: state.getIn(['home', 'showScroll'])
     }
 }
 
@@ -33,8 +54,16 @@ const mapDispatchToProps = (dispatch) => {
     return {
         changeHomeData() {
             dispatch(actionCreators.getTopicListAction());
+        },
+        changeScrollTopShow() {
+            console.log(document.documentElement.scrollTop)
+            let toggle = false;
+            if (document.documentElement.scrollTop > 400) {
+                toggle = true;
+            }
+            dispatch(actionCreators.changeScrollTopShowAction(toggle))
         }
     }
 }
 
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
