@@ -5,7 +5,7 @@ import { actionCreators } from '../../../common/header/store';
 export const loginAction = (account, password) => {
     return (dispatch) => {
         console.log("");
-        axios.get('/api/login.json?account=' + account + '&password=' + password).then(
+        axios.get('/api/login.json?account=' + account  + '&password=' + password).then(
             (res) => {
                 const result = res.data.data;
                 if (result) {
