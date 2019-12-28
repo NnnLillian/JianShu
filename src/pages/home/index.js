@@ -56,7 +56,6 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(actionCreators.getTopicListAction());
         },
         changeScrollTopShow() {
-            console.log(document.documentElement.scrollTop)
             let toggle = false;
             if (document.documentElement.scrollTop > 400) {
                 toggle = true;
